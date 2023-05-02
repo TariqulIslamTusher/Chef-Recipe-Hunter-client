@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active{
+    @apply hover:bg-slate-200 rounded-xl font-bold transition-all delay-100 px-4 py-2 underline text-blue-800
+}
+
+.default{
+    @apply hover:bg-slate-200 rounded-xl font-bold transition-all delay-100 px-4 py-2
+}

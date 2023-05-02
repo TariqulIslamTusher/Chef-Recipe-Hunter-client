@@ -4,12 +4,14 @@ import Main from '../layouts/Main'
 import Blog from '../components/pages/Blog';
 import Home from '../components/pages/Home';
 import Register from '../components/loginRegistration/Register';
+import ErrorPage from '../components/pages/ErrorPage';
 
 
 const route = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",

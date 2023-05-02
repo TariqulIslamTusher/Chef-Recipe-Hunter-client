@@ -1,11 +1,61 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
+
+const auth = getAuth(app)
+const googleProvider = new GoogleAuthProvider
+const githubProvider = new GithubAuthProvider
 
 const Login = () => {
+
+    const { LoginWithEmail, setUser, user } = useContext(AuthContext)
+
+    const handleLogin = (event) => {
+        event.preventDefault()
+        const email = event.target.email.value;
+        const password = event.target.password.value
+        
+
+        LoginWithEmail(email, password)
+            .then(res => {
+                const emailUser = res.user
+                console.log(emailUser);
+                setUser(emailUser);
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
+    }
+
+    // handleGoogle function
+    const handleGoogle =()=>{
+        signInWithPopup(auth, googleProvider)
+            .then((res)=>{
+                const loggedUser = res.user 
+                setUser(loggedUser)
+                console.log(user);
+            })
+            .catch(err=> console.log(err.messag3e))
+    }
+
+    // handle github function
+    const handleGithub=()=>{
+        signInWithPopup(auth, githubProvider)
+        .then((res)=>{
+            const loggedUser = res.user 
+            setUser(loggedUser)
+            console.log(user);
+        })
+        .catch(err=> console.log(err.messag3e))
+    }
+  
+
     return (
         <div className='container w-6/12 mx-auto m-8 h-[screen]'>
-            <form className="bg-slate-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-blue-400">
+            <form onSubmit={handleLogin} className="bg-slate-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-blue-400">
                 <div className='text-center mb-6'>
                     <h2 className='font-bold text-green-700 text-5xl'>Log In</h2>
                 </div>
@@ -41,12 +91,14 @@ const Login = () => {
 
                 <div className='flex gap-3 items-center'>
                     <h1>Log In with </h1>
-                    <span className=' border-2 bg-white shadow-sm p-3 text-center  text-red-600 text-2xl'><FaGoogle></FaGoogle>
+                    <div onClick={handleGoogle} className='cursor-pointer rounded-xl border-2 bg-white shadow-lg p-3 text-red-600 text-2xl'>
+                        <FaGoogle className='mx-auto'></FaGoogle>
                         <p className='text-sm'>Google</p>
-                    </span>
-                    <span className=' border-2 bg-white shadow-sm p-3 text-center  text-slate-700 text-2xl'><FaGithub></FaGithub>
+                    </div>
+                    <div onClick={handleGithub} className='rounded-xl cursor-pointer border-2 bg-white shadow-lg p-3 text-slate-700 text-2xl'>
+                        <FaGithub className='mx-auto'></FaGithub>
                         <p className='text-sm'>Github</p>
-                    </span>
+                    </div>
                 </div>
             </form>
         </div>
