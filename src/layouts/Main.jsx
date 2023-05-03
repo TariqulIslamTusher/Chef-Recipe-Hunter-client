@@ -6,8 +6,8 @@ import Navbar from '../components/Navbar';
 const Main = () => {
     return (
         <div>
-            <Navbar></Navbar>
-            <div className='min-h-[60vh]'>
+            
+            <div className='min-h-[60vh] '>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>

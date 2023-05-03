@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 .active{
-    @apply hover:bg-slate-200 rounded-xl font-bold transition-all delay-100 px-4 py-2 underline text-blue-800
+    @apply hover:bg-cyan-700 rounded-xl font-bold transition-all delay-100 px-4 py-2 text-yellow-400
 }
 
 .default{
-    @apply hover:bg-slate-200 rounded-xl font-bold transition-all delay-100 px-4 py-2
+    @apply hover:bg-cyan-900 rounded-xl font-bold transition-all delay-100 px-4 py-2
 }
+
+
