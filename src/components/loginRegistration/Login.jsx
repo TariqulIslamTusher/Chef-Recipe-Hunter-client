@@ -90,14 +90,14 @@ const Login = () => {
                 <p>Don't have an account?<Link className='btn btn-link' to='/register'>Register now</Link></p>
 
                 <div className='flex gap-3 items-center'>
-                    <h1>Log In with </h1>
-                    <div onClick={handleGoogle} className='cursor-pointer rounded-xl border-2 bg-white shadow-lg p-3 text-red-600 text-2xl'>
+                    
+                    <div onClick={handleGoogle} className='cursor-pointer flex items-center gap-3 rounded-xl border-2 bg-white shadow-lg p-3 text-[#ff781e] text-2xl'>
                         <FaGoogle className='mx-auto'></FaGoogle>
-                        <p className='text-sm'>Google</p>
+                        <p className='text-sm'>Log in with Google</p>
                     </div>
-                    <div onClick={handleGithub} className='rounded-xl cursor-pointer border-2 bg-white shadow-lg p-3 text-slate-700 text-2xl'>
+                    <div onClick={handleGithub} className='rounded-xl cursor-pointer flex items-center gap-3 border-2 bg-white shadow-lg p-3 text-slate-700 text-2xl'>
                         <FaGithub className='mx-auto'></FaGithub>
-                        <p className='text-sm'>Github</p>
+                        <p className='text-sm'>Log in with Github</p>
                     </div>
                 </div>
             </form>

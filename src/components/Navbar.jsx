@@ -9,7 +9,6 @@ const Navbar = () => {
     const handleLogOut = () => {
         signOutUser()
             .then(() => {
-                console.log('sucsess')
                 setUser('')
             })
             .catch(err => {
@@ -29,8 +28,12 @@ const Navbar = () => {
                             <NavLink className={({ isActive }) => isActive ? 'active' : 'default'} to='/' >Home</NavLink>
                             <NavLink className={({ isActive }) => isActive ? 'active' : 'default'} to='/blog' >Blog</NavLink>
 
-                            <NavLink className={({ isActive }) => isActive ? 'active' : 'default'} to='/login' >Log In</NavLink>
-                            <button onClick={handleLogOut} className='btn btn-sm btn-warning'>Log Out</button>
+                            <div>
+                                {user ? 
+                                    <button onClick={handleLogOut} className='btn btn-sm btn-warning'>Log Out</button> 
+                                    : 
+                                    <Link to='/login' ><button className='btn btn-sm lg:hidden btn-warning'>Log In</button></Link>}
+                            </div>
                         </ul>
                     </div>
                     <a className="btn btn-ghost normal-case text-xl">Chef's World</a>
@@ -39,21 +42,23 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <NavLink className={({ isActive }) => isActive ? 'active' : 'default'} to='/' >Home</NavLink>
                         <NavLink className={({ isActive }) => isActive ? 'active' : 'default'} to='/blog' >Blog</NavLink>
-
-                        <NavLink className={({ isActive }) => isActive ? 'active' : 'default'} to='/login' >Log In</NavLink>
+                      
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {
                         user ?
                             <div className='flex items-center gap-3 '>
-                                <button onClick={handleLogOut} className='btn hidden lg:inline btn-sm btn-warning'>Log Out</button>
+                                <button onClick={handleLogOut} className='btn btn-sm hidden lg:inline btn-warning'>Log Out</button>
                                 <div className='tooltip tooltip-bottom cursor-pointer' data-tip={user.displayName}>
-                                    <img tooltip={user.displayName} className='h-12 w-auto rounded-full border-2 border-gray-700' src={`${user.photoURL}`}></img>
+                                    <img tooltip={user.displayName} className='h-12 w-auto rounded-full' src={`${user.photoURL}`}></img>
                                 </div>
                             </div>
-                            : <div className='tooltip tooltip-bottom cursor-pointer' data-tip="No User">
-                                <FaUser className='h-12 w-auto p-1 rounded-full border-2 border-gray-700'></FaUser> 
+                            : <div className='flex items-center gap-3 '>
+                                <Link to='/login' ><button className='btn btn-sm hidden lg:inline btn-warning'>Log In</button></Link>
+                                <div className='tooltip tooltip-bottom cursor-pointer' data-tip="No User">
+                                    <FaUser className='h-12 w-auto p-1 rounded-full border-2 border-gray-700'></FaUser>
+                                </div>
                             </div>
                     }
                 </div>
