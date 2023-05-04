@@ -19,8 +19,8 @@ const Lesson = () => {
           </button>
         </div>
       </div>
-      <div className="mt-7 md:mt-0">
-        <img className="w-full h-full rounded-xl" src={chef} alt="" />
+      <div className="mt-7 md:mt-0 rounded-xl">
+        <img className="w-full h-full px-6 " src={chef} alt="" />
       </div>
     </div>
   );
