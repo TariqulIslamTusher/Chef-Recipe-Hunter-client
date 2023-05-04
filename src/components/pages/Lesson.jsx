@@ -12,7 +12,7 @@ const Lesson = () => {
         <p className="text-2xl mt-4 md:mt-7 pe-8 text-justify">
           Join our community to gear up your skill and knowledge about world wide famous recipes and delicious food making methods. Learn us on joining meeting or followings our offline video
         </p>
-        <div className="flex flex-col-reverse md:flex-row mt-7 md:mt-12 justify-center md:gap-20">
+        <div className="flex flex-col-reverse md:flex-row gap-6 mt-7 md:mt-12 justify-center md:gap-16">
           <button className="btn btn-warning">Join Lessons</button>
           <button className="btn btn-outline ">
             <FaVideo className="text-2xl mr-4 "></FaVideo> Watch Our Videos
