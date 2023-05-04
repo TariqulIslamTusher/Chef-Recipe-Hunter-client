@@ -13,9 +13,10 @@
 - All chefs recipies are protected in a private route. So you have to login first to watch those recipes
 - Hope you have a eligant idea about my site
 
-#### Join us today and take the first step towards your dream career in the tech industry!
+#### Join OUR FREE MEETING WITH WORLD BEST CHEF OR ENJOY OUR VIDEO ON SITE!
+
 
 
 
 ## 🔗 Links
-[![Live Link of my Project:](https://tenth-chef-recipe-hunter.web.app/)]
+[![Live Link of my Project:](https://img.shields.io/badge/My_JobField_Project-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://tenth-chef-recipe-hunter.web.app/)
