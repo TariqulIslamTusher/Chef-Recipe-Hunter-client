@@ -6,13 +6,35 @@ const Priority = () => {
             <div className='lg:w-5/12 px-4'>
                 <div className="carousel h-72 carousel-vertical rounded-box">
                     <div className="carousel-item h-full">
-                        <img className='w-full object-cover' src='https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&w=600'></img>
+                        <img className='w-full object-cover' src='https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=600'></img>
                     </div>
                     <div className="carousel-item h-full">
                         <img className='w-full object-cover' src='https://images.pexels.com/photos/604969/pexels-photo-604969.jpeg?auto=compress&cs=tinysrgb&w=600'></img>
                     </div>
                     <div className="carousel-item h-full">
-                        <img className='w-full object-cover' src='https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg?auto=compress&cs=tinysrgb&w=600'></img>
+                        <img className='w-full object-cover' src='https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=600'></img>
+                    </div>
+
+
+                    <div className="carousel-item h-full">
+                        <img className='w-full object-cover' src='https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
+                    </div>
+                    <div className="carousel-item h-full">
+                        <img className='w-full object-cover' src='https://images.pexels.com/photos/1813505/pexels-photo-1813505.jpeg?auto=compress&cs=tinysrgb&w=600'></img>
+                    </div>
+                    <div className="carousel-item h-full">
+                        <img className='w-full object-cover' src='https://images.pexels.com/photos/1813505/pexels-photo-1813505.jpeg?auto=compress&cs=tinysrgb&w=600'></img>
+                    </div>
+
+
+                    <div className="carousel-item h-full">
+                        <img className='w-full object-cover' src='https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&w=600'></img>
+                    </div>
+                    <div className="carousel-item h-full">
+                        <img className='w-full object-cover' src='https://images.pexels.com/photos/2679501/pexels-photo-2679501.jpeg?auto=compress&cs=tinysrgb&w=600'></img>
+                    </div>
+                    <div className="carousel-item h-full">
+                        <img className='w-full object-cover' src='https://images.pexels.com/photos/5769392/pexels-photo-5769392.jpeg?auto=compress&cs=tinysrgb&w=600'></img>
                     </div>
 
                 </div>

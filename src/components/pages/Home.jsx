@@ -24,7 +24,7 @@ const Home = () => {
                     <Priority></Priority>
             </div>
 
-            <div>
+            <div className='bg-gradient-to-b from-gray-400 to-cyan-300 text-center'>
                 <Lesson></Lesson>
             </div>
 

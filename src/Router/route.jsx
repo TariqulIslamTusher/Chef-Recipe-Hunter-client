@@ -13,11 +13,12 @@ const route = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: ()=> fetch('http://localhost:4000/chefInfo')
+                loader: ()=> fetch('https://tenth-chef-recipe-server-islamtariqul652-gmailcom.vercel.app/chefInfo')
             },
             {
                 path: "/login",
@@ -34,12 +35,9 @@ const route = createBrowserRouter([
             {
                 path: '/chefInfo/:id',
                 element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:4000/chefInfo/${params.id}`)
-            },
-            {
-                path: "*",
-                element: <ErrorPage></ErrorPage>
+                loader:({params})=>fetch(`https://tenth-chef-recipe-server-islamtariqul652-gmailcom.vercel.app/chefInfo/${params.id}`)
             }
+            
         ]
     }
 ])
