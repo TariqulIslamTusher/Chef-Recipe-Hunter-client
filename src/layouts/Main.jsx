@@ -8,8 +8,8 @@ const Main = () => {
     return (
         <div>
             
-            <div className='min-h-[60vh] '>
-                <div>{navigation.state === 'loading' && 'loading'}</div>
+            <div className='min-h-[calc(100vh-160px)] '>
+                
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>

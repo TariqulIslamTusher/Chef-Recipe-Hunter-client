@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar';
+import QustionAnswer from './QustionAnswer';
+
 
 const Blog = () => {
 
