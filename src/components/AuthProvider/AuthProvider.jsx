@@ -9,7 +9,6 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState('')
-    const [loader, useLoader] = useState(true)
 
     // controlled form making state
     const [password, setPassword] = useState("")
@@ -18,11 +17,16 @@ const AuthProvider = ({ children }) => {
     const [emailError, setEmailError] = useState("")
     const [rootErr, setRootError] = useState("")
 
+    // Loading spinner
+    const [loader, setLoader] = useState(true)
+
     const createAcctWithEmail = (email, password) => {
+        setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const LoginWithEmail = (email, password) => {
+        setLoader(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -32,6 +36,7 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currUser) => {
+            setLoader(false)
             setUser(currUser)
 
         })
@@ -40,11 +45,11 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-       
+
 
 
     const authInfo = {
-        user, setUser, loader, useLoader, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail, rootErr, setRootError,
+        user, setUser, loader, setLoader, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail, rootErr, setRootError,
         createAcctWithEmail,
         LoginWithEmail,
         signOutUser

@@ -4,10 +4,11 @@ import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../Chef-Card/ChefCard'
 import Priority from './Priority';
 import { toast } from 'react-toastify';
+import Lesson from './Lesson';
 
 const Home = () => {
     const chefsInfo = useLoaderData()
-    toast.success('login success')
+
     return (
         <div>
             <Banner></Banner>
@@ -21,6 +22,10 @@ const Home = () => {
 
             <div className='bg-gradient-to-b from-cyan-700 to-gray-400 text-center'>
                     <Priority></Priority>
+            </div>
+
+            <div>
+                <Lesson></Lesson>
             </div>
 
         </div>

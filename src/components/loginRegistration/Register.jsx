@@ -66,7 +66,7 @@ const Register = () => {
             setUrl('')
             setEmailError('')
             setPError('')
-            toast.info('registration success')
+            
         }
 
 
@@ -74,7 +74,7 @@ const Register = () => {
         createAcctWithEmail(email, password)
             .then(res => {
                 const loggedUser = res.user;
-                console.log(loggedUser);
+                toast.info('registration success')
                 setUser(loggedUser);
                 navigate(location?.state?.pathname || '/')
                 // calling the photo and url updating function
@@ -194,7 +194,7 @@ const Register = () => {
 
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Register</button>
                    
-                    <p>Already have an account?<Link className='text-red-800 font-bold ml-2' to='/login'>Log In</Link></p>
+                    <p className='my-3'>Already have an account?<Link className='text-red-800 font-bold ml-2' to='/login'>Log In</Link></p>
 
 
                 </form>
