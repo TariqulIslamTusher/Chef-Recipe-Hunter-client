@@ -38,7 +38,7 @@ const Navbar = () => {
                             </div>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case top-1 text-xl md:text-3xl">CHEF'S AND RECIPES</a>
+                    <Link to='/' className="btn btn-ghost normal-case top-1 text-xl md:text-3xl">CHEF'S AND RECIPES</Link>
                 </div>
                 <div className='ml-auto'>
                     <div className=" hidden lg:flex lg:justify-end">
