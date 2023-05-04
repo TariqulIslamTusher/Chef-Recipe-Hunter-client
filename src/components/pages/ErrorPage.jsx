@@ -1,18 +1,28 @@
-import React from "react";
-import { Link, useRouteError } from "react-router-dom";
+// import { FaceFrownIcon } from '@heroicons/react/24/solid'
+import React from 'react'
+import { Link, useRouteError } from 'react-router-dom'
 
 const ErrorPage = () => {
-    const error = useRouteError()
-    console.log(error);
+  const { error, status } = useRouteError()
   return (
-    <div className="bg-slate-300 h-screen flex flex-col justify-center items-center">
-      <h1 className="text-8xl font-bold text-red-500 mb-4 animate-pulse">{error.status}</h1>
-      <h3 className="text-2xl mb-4">{error.statusText}</h3>
-      <h3 className="text-red-800 text-xl mb-4">{error.data}</h3>
+    <section className='flex items-center h-screen p-16 bg-gray-100 text-gray-900'>
+      <div className='container flex flex-col items-center justify-center px-5 mx-auto my-8'>
+        {/* <FaceFrownIcon className='w-40 h-40 text-yellow-500' /> */}
+        <div className='max-w-md text-center'>
+          <h2 className='mb-8 font-extrabold text-9xl text-yellow-500'>
+            <span className='sr-only'>Error</span>
+            {status || 404}
+          </h2>
+          <p className='text-2xl font-semibold md:text-3xl text-red-800 mb-8'>
+            {error?.message}
+          </p>
+          <Link to='/' className='btn'>
+            Back to homepage
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
 
-      <Link to='/' className="my-3 btn btn-secondary">Go back to homepage</Link>
-    </div>
-  );
-};
-
-export default ErrorPage;
+export default ErrorPage

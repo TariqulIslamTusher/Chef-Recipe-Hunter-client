@@ -20,7 +20,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='bg-gradient-to-b from-cyan-700 to-gray-400 text-center'>
+            <div className='bg-gradient-to-b from-cyan-700 to-gray-400 text-center py-5'>
                     <Priority></Priority>
             </div>
 

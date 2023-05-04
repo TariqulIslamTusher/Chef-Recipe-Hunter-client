@@ -40,7 +40,7 @@ const Priority = () => {
                 </div>
             </div>
             <div className='text-center px-4 lg:w-7/12 text-2xl'>
-                <h1 className='text-4xl text-white font-extrabold  mb-3'>Our CHEFS</h1>
+                <h1 className='text-4xl text-yellow-400 font-extrabold border-b-2 pb-2 mb-3'>OUR CHEF'S RECIPES</h1>
                 <p className='text-justify text-gray-200'>A chef is a highly trained and skilled professional cook who is proficient in all aspects of food preparation of a particular cuisine. The word "chef" is derived (from shortened) from the term chef de cuisine , the director or head of a kitchen. Chefs can receive both formal training from an institution, as well as through apprenticeship with an experienced chef.</p>
             </div>
         </div>
