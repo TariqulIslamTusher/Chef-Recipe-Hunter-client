@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Navbar from '../Navbar';
 import { useLoaderData } from 'react-router-dom';
 import SingleChef from './SingleChef';
-import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const ChefDetails = () => {
 

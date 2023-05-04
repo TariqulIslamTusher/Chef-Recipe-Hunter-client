@@ -11,7 +11,7 @@ const Banner = () => {
                 <h1 className="text-3xl font-bold text-white mb-2 shadow-md">DISCOVER OUR CHEF</h1>
                 <p className="text-xl text-slate-50">Most higher qualified chef of italiano cuisines are in font of you. <br></br> <span className='text-yellow-400'>Why delay????</span> <br></br> <span className='text-teal-100'>Have a look and rate them with your elegancy.</span></p>
                 <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded mt-4 focus:outline-none focus:shadow-outline">
-                    Get Started
+                   <a href="chef-card">Get Started</a>
                 </button>
             </div>
         </div>

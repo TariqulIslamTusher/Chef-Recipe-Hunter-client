@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaRegStar, FaStar, FaThumbsUp } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 
@@ -7,15 +8,19 @@ const ChefCard = ({ singleInfo }) => {
     const { id, chefPicture, chefName, numRecipes, yearsExperience, likes, ratings } = singleInfo
 
     return (
-        <div className="card rounded-br-md w-full max-h-fit bg-base-100 shadow-xl hover:-translate-y-10 transition-all ease-in-out duration-300">
-            <figure><img className='object-cover object-center w-full h-[370px]' src={chefPicture} alt="" /></figure>
+        <div id='chef-card' className="card rounded-b-xl w-full max-h-fit bg-base-100 shadow-xl hover:-translate-y-7 transition-all ease-in-out duration-500">
+           
+                <LazyLoad>
+                    <img className='object-cover rounded-t-xl object-center w-full h-[370px]' src={chefPicture} alt="" />
+                </LazyLoad>
+           
             <div className="card-body bg-gradient-to-br from-amber-200 to-sky-200 ">
                 <h2 className="card-title text-2xl font-bold">{chefName}</h2>
                 <p className='text-xl'>Experience: {yearsExperience} Years+</p>
                 <p>Total Recipes: {numRecipes}</p>
                 {/* likes and ratings */}
                 <div className='flex justify-between mt-3 border-y-2 py-4'>
-                    <div className='flex items-center gap-1'><FaThumbsUp className='text-blue-800 text-xl'></FaThumbsUp> {likes} Likes</div>
+                    <div className='flex items-center gap-1'><FaThumbsUp className='text-slate-600 text-2xl'></FaThumbsUp> {likes} Likes</div>
                     <div><Rating
                         readonly
                         placeholderRating={ratings}

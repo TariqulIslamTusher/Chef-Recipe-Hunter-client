@@ -1,26 +1,37 @@
-// import { FaceFrownIcon } from '@heroicons/react/24/solid'
+import { Player } from '@lottiefiles/react-lottie-player'
 import React from 'react'
 import { Link, useRouteError } from 'react-router-dom'
 
+
 const ErrorPage = () => {
-  const { error, status } = useRouteError()
+  const ErrorByuseRouterError = useRouteError()
+  // distructuring  it
+  const {error, status, statusText  } = ErrorByuseRouterError
+  const message = error.message
+
+  
   return (
-    <section className='flex items-center h-screen p-16 bg-gray-100 text-gray-900'>
-      <div className='container flex flex-col items-center justify-center px-5 mx-auto my-8'>
-        {/* <FaceFrownIcon className='w-40 h-40 text-yellow-500' /> */}
-        <div className='max-w-md text-center'>
-          <h2 className='mb-8 font-extrabold text-9xl text-yellow-500'>
-            <span className='sr-only'>Error</span>
-            {status || 404}
-          </h2>
-          <p className='text-2xl font-semibold md:text-3xl text-red-800 mb-8'>
-            {error?.message}
-          </p>
-          <Link to='/' className='btn'>
-            Back to homepage
-          </Link>
-        </div>
+    <section className='flex flex-col gap-5 items-center h-screen justify-center bg-slate-300 text-gray-900'>
+      <Player
+        src={status == 404? 'https://assets9.lottiefiles.com/packages/lf20_suhe7qtm.json' : "https://assets9.lottiefiles.com/private_files/lf30_dxynp73g.json"}
+        className="player"
+        loop
+        style={{ height: '200px', width: '300px' }}
+        autoplay
+      />
+      <div className='text-center'>
+        <h1 className='text-9xl font-bold text-red-800'>{status == 404 ? "" : status + ' ' + statusText}</h1>
+        {
+          status == 404? <p className='text-4xl text-red-700 my-5 font-bold'>{statusText}</p> : ''
+        }
+        <p className='text-xl text-orange-700 '>{message}</p>
+
       </div>
+
+      <Link to='/' className='btn font-bold'>
+        Back to homepage
+      </Link>
+
     </section>
   )
 }

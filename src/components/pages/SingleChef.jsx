@@ -2,6 +2,7 @@ import React from 'react';
 import { FaRegStar, FaStar, FaThumbsUp } from 'react-icons/fa';
 import Rating from 'react-rating';
 import Recipes from './Recipes';
+import LazyLoad from 'react-lazy-load';
 
 
 const SingleChef = ({ chefData }) => {
@@ -16,7 +17,9 @@ const SingleChef = ({ chefData }) => {
 
             {/* Single Chef's Details */}
             <div className="flex flex-col items-center  bg-white border border-gray-300 rounded-lg shadow-lg md:flex-row md:w-3/5 hover:bg-yellow-50 container mx-auto">
-                <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-96 md:rounded-none md:rounded-l-lg" src={chefPicture} alt="" />
+               <LazyLoad>
+               <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-96 md:rounded-none md:rounded-l-lg" src={chefPicture} alt="" />
+               </LazyLoad>
                 <div className="flex flex-col justify-between p-6 leading-normal">
                     <h1 className="mb-3 lg:text-6xl pb-3 font-bold text-gray-900 border-b-4">{chefName}</h1>
                     {/* first border */}
