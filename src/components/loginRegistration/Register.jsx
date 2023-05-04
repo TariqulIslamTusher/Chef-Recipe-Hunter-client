@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
@@ -6,35 +6,77 @@ import Navbar from '../Navbar';
 
 
 const Register = () => {
-    const { createAcctWithEmail, setUser } = useContext(AuthContext)
+
+    const { createAcctWithEmail, setUser, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail, eor, setError } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
 
-    console.log(location);
-
+    const [nameErr, setNameErr] = useState('')
+    const [urlErr, setUrl] = useState('')
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const name = e.target.name.value
-        const url = e.target.url.value
+        const Url = e.target.url.value
         const email = e.target.email.value
         const password = e.target.password.value
+
+        if (!name) {
+            e.target.name.focus()
+            setUrl('')
+            setEmailError('')
+            setPError('')
+            return setNameErr('Name can not be empty')
+        }
+        else if (!Url) {
+            e.target.url.focus()
+            setNameErr('')
+            setPError('')
+            setUrl('')
+            return setUrl('Url input can not be empty')
+        } else if (!email || emailError) {
+            setUrl('')
+            setNameErr('')
+            setPError('')
+            setEmailError('Email can not be empty')
+            return e.target.email.focus()
+        } else if (!password) {
+            setNameErr('')
+            setUrl('')
+            setEmailError('')
+            setPError('Pasword can not be empty')
+            return e.target.password.focus()
+        }
+        else if(passwordError){
+            setNameErr('')
+            setUrl('')
+            setEmailError('')
+            setPError(passwordError)
+            return e.target.password.focus()
+        }
+        else {
+            setNameErr('')
+            setUrl('')
+            setEmailError('')
+            setPError('')
+        }
 
 
         // creating user with email
         createAcctWithEmail(email, password)
             .then(res => {
                 const loggedUser = res.user;
-
+                console.log(loggedUser);
                 setUser(loggedUser);
                 navigate(location?.state?.pathname || '/')
                 // calling the photo and url updating function
-                updatePhotoAndUrl(loggedUser, name, url)
+                updatePhotoAndUrl(loggedUser, name, Url)
                     .then(() => {
 
                     }).catch((error) => {
-                        console.log(error.message);
+                        setError(error.message);
+                        
                     });
             })
             .catch(err => {
@@ -42,12 +84,41 @@ const Register = () => {
             })
 
         // Photo and url updating function
-        const updatePhotoAndUrl = (user, name, url) => {
-            return updateProfile(user, { displayName: name, photoURL: url })
+        const updatePhotoAndUrl = (user, name, Url) => {
+            return updateProfile(user, { displayName: name, photoURL: Url })
         }
 
+
+    }
+    //controlled form function
+    const handlePassword = (e) => {
+        const passwordInput = e.target.value
+
+        if (passwordInput.length === 0) {
+            setPError('')
+        }
+        else if (passwordInput.length < 6) {
+            setPError('Password must be at least 6 caracters')
+        }
+        else {
+            setPError('')
+        }
+        setPassword(e.target.value)
     }
 
+    const handleEmail = (e) => {
+        const emailInput = e.target.value
+        setEmail(emailInput)
+        if (emailInput.length === 0) {
+            setEmailError('')
+        }
+        else if (!/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailInput)) {
+            setEmailError('Please input a valid Email')
+        }
+        else {
+            setEmailError('')
+        }
+    }
 
     return (
         <div>
@@ -65,8 +136,10 @@ const Register = () => {
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             name="name"
                             type="text"
+
                             placeholder="Your Name"
                         />
+                        {nameErr ? <p className='text-red-500'>{nameErr}</p> : ''}
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="url">
@@ -78,6 +151,7 @@ const Register = () => {
                             type="text"
                             placeholder="url:(https://imbb.food.png)"
                         />
+                        {urlErr ? <p className='text-red-500'>{urlErr}</p> : ''}
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
@@ -87,9 +161,14 @@ const Register = () => {
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             name="email"
                             type="email"
+                            value={email}
+                            onChange={handleEmail}
                             placeholder="Enter Your email"
                         />
+                        {emailError ? <p className='text-red-500'>{emailError}</p> : ''}
+
                     </div>
+
                     <div className="mb-6">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
                             Password
@@ -98,12 +177,15 @@ const Register = () => {
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             name="password"
                             type="password"
+                            value={password}
+                            onChange={handlePassword}
                             placeholder="Password"
                         />
+                        {passwordError ? <p className='text-red-500'>{passwordError}</p> : ''}
                     </div>
 
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Register</button>
-
+                   
                     <p>Already have an account?<Link className='btn btn-link' to='/login'>Log In</Link></p>
 
 

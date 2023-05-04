@@ -7,12 +7,6 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const ChefDetails = () => {
 
     const chefData = useLoaderData()
-    const {setLoader, user} = useContext(AuthContext)
-    if(!user){
-        setLoader(true)
-        return "loading"
-    }
-
 
     return (
         <div>

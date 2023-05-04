@@ -10,6 +10,13 @@ const AuthProvider = ({ children }) => {
     const [user, setUser]= useState('')
     const [loader, useLoader] = useState(true)
 
+    // controlled form making state
+    const [password, setPassword] = useState("")
+    const [passwordError, setPError] = useState("")
+    const [email, setEmail] = useState("")
+    const [emailError, setEmailError] = useState("")
+    const [eor, setError] = useState("")
+
     const createAcctWithEmail = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
@@ -25,7 +32,7 @@ const AuthProvider = ({ children }) => {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currUser)=>{
             setUser(currUser)
-            useLoader(false)
+            
         })
         return()=>{
             return unsubscribe()
@@ -35,7 +42,7 @@ const AuthProvider = ({ children }) => {
 
 
     const authInfo = {
-        user, setUser,loader, useLoader,
+        user, setUser,loader, useLoader,password, setPassword,passwordError, setPError,emailError, setEmailError,email, setEmail, eor, setError,
         createAcctWithEmail,
         LoginWithEmail,
         signOutUser
