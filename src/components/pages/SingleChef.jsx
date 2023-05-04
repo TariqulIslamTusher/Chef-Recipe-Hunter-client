@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaRegStar, FaStar, FaThumbsUp } from 'react-icons/fa';
 import Rating from 'react-rating';
+import Recipes from './Recipes';
 
 
 const SingleChef = ({ chefData }) => {
@@ -10,7 +11,7 @@ const SingleChef = ({ chefData }) => {
         <div>
             {/* heading */}
             <div className='container text-center mx-auto w-full lg:w-8/12 p-5'>
-                <h1 className='font-extrabold text-7xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-700 to-pink-600'>Chef's Details</h1>
+                <h1 className='font-extrabold lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-700 to-pink-600'>CHEF'S DETAILS</h1>
             </div>
 
             {/* Single Chef's Details */}
@@ -44,37 +45,13 @@ const SingleChef = ({ chefData }) => {
 
             </div>
             {/* Chef's Special Recipes */}
-            <div className='container text-center mx-auto w-full lg:w-8/12 p-5'>
-                <h1 className='font-extrabold text-7xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-pink-600'>Chef's Special Recipes</h1>
+            <div className='container text-center mx-auto w-full lg:w-8/12 p-5 mt-6'>
+                <h1 className='font-extrabold lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-700 to-pink-600'>Chef's Special Recipes</h1>
             </div>
-            <div className='flex flex-col items-center gap-4  md:flex-row md:w-3/5 container mx-auto'>
-                {/* first recipes card */}
-                <div className="card w-full bg-base-100 shadow-xl image-full">
-                    <figure><img className='w-full h-auto object-cover' src="https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        
-                    </div>
-                </div>
-                {/* second recipes card */}
-                <div className="card w-full bg-base-100 shadow-xl image-full">
-                    <figure><img className='w-full max-h-52 object-cover' src="https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        
-                    </div>
-                </div>
-                {/* third recipes card */}
-                <div className="card w-full bg-base-100 shadow-xl image-full">
-                    <figure><img className='w-full max-h-52 object-cover' src="https://images.pexels.com/photos/905847/pexels-photo-905847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        
-                    </div>
-                </div>
+            <div className='grid grid-cols-1 md:grid-cols-3 pb-5 items-center gap-3 md:w-4/5 container mx-auto'>
+                {
+                    recipes.map(recipe => <Recipes key={id} recipe={recipe}></Recipes>)
+                }
             </div>
         </div>
     );

@@ -41,7 +41,6 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <NavLink className={({ isActive }) => isActive ? 'active' : 'default'} to='/' >Home</NavLink>
                         <NavLink className={({ isActive }) => isActive ? 'active' : 'default'} to='/blog' >Blog</NavLink>
-                      
                     </ul>
                 </div>
                 <div className="navbar-end">

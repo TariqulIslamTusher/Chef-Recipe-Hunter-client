@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../AuthProvider/AuthProvider';
 import Navbar from '../Navbar';
 
 const Blog = () => {
@@ -7,7 +6,9 @@ const Blog = () => {
     return (
         <div>
             <Navbar></Navbar>
-            There i'll answer the question
+            <div className='bg-gradient-to-r from-slate-300 via-slate-50 to-slate-300'>
+
+            </div>
         </div>
     );
 };

@@ -10,9 +10,9 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <div className='bg-gradient-to-b from-gray-900 via-gray-300 to-cyan-700 border-t-indigo-300'>
-                <div className='grid grid-cols-1 md:grid-cols-3 container mx-auto gap-8 -translate-y-40'>
+                <div className='grid grid-cols-1 px-4 md:grid-cols-3 container mx-auto gap-8 -translate-y-40'>
                     {
-                        chefsInfo.map(singleInfo => <ChefCard singleInfo={singleInfo}></ChefCard>)
+                        chefsInfo.map(singleInfo => <ChefCard key={singleInfo.id} singleInfo={singleInfo}></ChefCard>)
                     }
                 </div>
             </div>
