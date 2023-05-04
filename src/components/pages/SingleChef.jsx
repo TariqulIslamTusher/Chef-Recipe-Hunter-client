@@ -24,7 +24,8 @@ const SingleChef = ({ chefData }) => {
                     {/* second Border */}
                     <div>
                         <h1 className='text-xl leading-8'><span className='font-bold mr-3'>Name :</span> {chefName}</h1>
-                        <h1 className='text-xl leading-8'><span className='font-bold mr-3'>Experience :</span> {yearsExperience} Years+</h1>
+
+                        <h1 className='text-xl leading-8'><span className='font-bold mr-3'>Experience :</span>{yearsExperience} Years+</h1>
 
                         <h1 className='text-xl leading-8'><span className='font-bold mr-3'>Ratings :</span>{ratings}</h1>
 
@@ -33,7 +34,7 @@ const SingleChef = ({ chefData }) => {
                     </div>
                     {/* Icon part */}
                     <div className='flex justify-between mt-3 border-t-4 pt-4'>
-                        <div className='flex items-center gap-1'><FaThumbsUp></FaThumbsUp> {likes} Likes</div>
+                        <div className='flex items-center gap-1'><FaThumbsUp className='text-blue-800 text-xl'></FaThumbsUp><span>{likes} Likes</span></div>
                         <div><Rating
                             readonly
                             placeholderRating={ratings}

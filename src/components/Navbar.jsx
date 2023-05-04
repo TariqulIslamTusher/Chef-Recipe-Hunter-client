@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from './AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Navbar = () => {
     const { user, signOutUser, setUser } = useContext(AuthContext)
 
     const handleLogOut = () => {
+        toast.info('logged out')
         signOutUser()
             .then(() => {
                 setUser('')
@@ -17,6 +19,7 @@ const Navbar = () => {
     }
     return (
         <div className='bg-black bg-opacity-50'>
+            <ToastContainer></ToastContainer>
             <div className="navbar sticky top-0 text-white text-2xl z-20 container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">

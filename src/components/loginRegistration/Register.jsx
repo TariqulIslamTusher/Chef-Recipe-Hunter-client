@@ -3,14 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import Navbar from '../Navbar';
+import { toast } from 'react-toastify';
 
 
 const Register = () => {
 
-    const { createAcctWithEmail, setUser, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail, eor, setError } = useContext(AuthContext)
+    const { createAcctWithEmail, setUser, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail,rootErr, setRootError } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
-
     const [nameErr, setNameErr] = useState('')
     const [urlErr, setUrl] = useState('')
 
@@ -35,11 +35,17 @@ const Register = () => {
             setPError('')
             setUrl('')
             return setUrl('Url input can not be empty')
-        } else if (!email || emailError) {
+        } else if (!email) {
             setUrl('')
             setNameErr('')
             setPError('')
             setEmailError('Email can not be empty')
+            return e.target.email.focus()
+        } else if (emailError) {
+            setUrl('')
+            setNameErr('')
+            setPError('')
+            setEmailError(emailError)
             return e.target.email.focus()
         } else if (!password) {
             setNameErr('')
@@ -60,6 +66,7 @@ const Register = () => {
             setUrl('')
             setEmailError('')
             setPError('')
+            toast.info('registration success')
         }
 
 
@@ -75,12 +82,13 @@ const Register = () => {
                     .then(() => {
 
                     }).catch((error) => {
-                        setError(error.message);
+                        setRootError(error.message);
                         
                     });
             })
             .catch(err => {
-                console.log(err.message);
+                setRootError(err.message);
+                toast.warning(err.message)
             })
 
         // Photo and url updating function
@@ -186,7 +194,7 @@ const Register = () => {
 
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Register</button>
                    
-                    <p>Already have an account?<Link className='btn btn-link' to='/login'>Log In</Link></p>
+                    <p>Already have an account?<Link className='text-red-800 font-bold ml-2' to='/login'>Log In</Link></p>
 
 
                 </form>

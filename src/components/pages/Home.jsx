@@ -3,9 +3,11 @@ import Banner from './Banner';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../Chef-Card/ChefCard'
 import Priority from './Priority';
+import { toast } from 'react-toastify';
 
 const Home = () => {
     const chefsInfo = useLoaderData()
+    toast.success('login success')
     return (
         <div>
             <Banner></Banner>
