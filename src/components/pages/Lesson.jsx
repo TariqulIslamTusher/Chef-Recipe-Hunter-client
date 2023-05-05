@@ -14,7 +14,7 @@ const Lesson = () => {
       </div>
 
       <div className="rounded-xl container mx-auto py-12 md:grid grid-cols-1 md:grid-cols-2 items-center gap-4">
-        <div className="px-4">
+        <div className="px-4 order-2 md:order-1">
           <p className="text-2xl mt-4 md:mt-7 pe-8 text-justify">
             Join our community to gear up your skill and knowledge about world wide famous recipes and delicious food making methods. Learn us on joining meeting or followings our offline video
           </p>
@@ -25,7 +25,7 @@ const Lesson = () => {
             </button>
           </div>
         </div>
-        <div className="mt-7 md:mt-0 rounded-xl">
+        <div className="mt-7 md:mt-0 rounded-xl order-1 md:order-2">
           <LazyLoad>
             <img className="w-full h-full px-6 " src={chef} alt="" />
           </LazyLoad>
