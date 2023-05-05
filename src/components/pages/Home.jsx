@@ -15,18 +15,18 @@ const Home = () => {
             
             <Banner></Banner>
             <div className='bg-gradient-to-b from-gray-900 via-gray-300 to-cyan-700 border-t-indigo-300'>
-                <div className='grid grid-cols-1 px-4 md:grid-cols-3 container mx-auto gap-8 md:-translate-y-40'>
+                <div className='grid grid-cols-1 px-4 md:grid-cols-3 container mx-auto gap-8 md:px-20 md:-translate-y-40'>
                     {
                         chefsInfo.map(singleInfo => <ChefCard key={singleInfo.id} singleInfo={singleInfo}></ChefCard>)
                     }
                 </div>
             </div>
 
-            <div className='bg-gradient-to-b from-cyan-700 from-60%  to-teal-700 text-center py-5'>
+            <div className='bg-gradient-to-b from-cyan-700 from-60%  to-teal-700 text-center md:px-20 py-5'>
                     <Priority></Priority>
             </div>
 
-            <div className='bg-gradient-to-b from-teal-700 to-teal-400 text-center pt-7 md:pt-12'>
+            <div className='bg-gradient-to-b from-teal-700 to-slate-500 text-center md:px-20 pt-7 md:pt-12'>
                 <Lesson></Lesson>
             </div>
 
