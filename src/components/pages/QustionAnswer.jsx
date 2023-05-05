@@ -10,7 +10,7 @@ const btn4 = React.createRef()
 const QustionAnswer = () => {
 
     const notify = () => {
-        toast.info('Generating PDF')
+        toast.info('Downloading PDF')
     }
 
     return (
