@@ -131,10 +131,10 @@ const Register = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className='container w-6/12 mx-auto m-8 h-[screen]'>
+            <div className='container w-9/12 md:w-6/12 mx-auto m-8 h-[screen]'>
                 <form onSubmit={handleSubmit} className="bg-slate-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-blue-400">
                     <div className='text-center mb-6'>
-                        <h2 className='font-bold text-amber-700 text-5xl'>Register Here</h2>
+                        <h2 className='font-bold text-amber-700 text-2xl md:text-5xl'>Register Here</h2>
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="name">

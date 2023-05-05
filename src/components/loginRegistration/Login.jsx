@@ -135,7 +135,7 @@ const Login = () => {
         <div>
             <ToastContainer></ToastContainer>
             <Navbar></Navbar>
-            <div className='container w-6/12 mx-auto m-8 h-[screen]'>
+            <div className='container w-9/12 md:w-6/12 mx-auto m-8 h-[screen]'>
                 <form onSubmit={handleLogin} className="bg-slate-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-blue-400">
                     <div className='text-center mb-6'>
                         <h2 className='font-bold text-green-700 text-5xl'>Log In</h2>
@@ -171,9 +171,12 @@ const Login = () => {
 
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Log In</button>
 
-                    <p className='my-3'>New Here?<Link className='text-red-800 font-bold ml-2' to='/register' state={location.state}>Register now</Link></p>
+                    <div className='flex flex-col md:flex-row my-3 gap-2'>
 
-                    <div className='flex gap-3 items-center'>
+                    <p >New Here?</p>
+                    <Link className='text-red-800 font-bold' to='/register' state={location.state}>Register now</Link>
+                    </div>
+                    <div className='flex gap-3 flex-col md:flex-row items-center'>
 
                         <div onClick={handleGoogle} className='cursor-pointer flex items-center gap-3 rounded-xl border-2 bg-white shadow-lg p-3 text-[#ff781e] text-2xl'>
                             <FaGoogle className='mx-auto'></FaGoogle>
