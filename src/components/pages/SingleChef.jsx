@@ -11,15 +11,15 @@ const SingleChef = ({ chefData }) => {
     return (
         <div>
             {/* heading */}
-            <div className='container text-center mx-auto w-full lg:w-8/12 p-5'>
+            <div className='container text-center mx-auto w-full lg:w-8/12 p-5 '>
                 <h1 className='font-extrabold lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-700 to-pink-600'>CHEF'S DETAILS</h1>
             </div>
 
             {/* Single Chef's Details */}
             <div className="flex flex-col items-center  bg-white border border-gray-300 rounded-lg shadow-lg md:flex-row md:w-3/5 hover:bg-yellow-50 container mx-auto">
-               <LazyLoad>
+               
                <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-96 md:rounded-none md:rounded-l-lg" src={chefPicture} alt="" />
-               </LazyLoad>
+
                 <div className="flex flex-col justify-between p-6 leading-normal">
                     <h1 className="mb-3 lg:text-6xl pb-3 font-bold text-gray-900 border-b-4">{chefName}</h1>
                     {/* first border */}
@@ -49,10 +49,10 @@ const SingleChef = ({ chefData }) => {
 
             </div>
             {/* Chef's Special Recipes */}
-            <div className='container text-center mx-auto w-full lg:w-8/12 p-5 mt-6'>
+            <div className='container text-center mx-auto w-full lg:w-8/12 p-5 lg:p-8 mt-6'>
                 <h1 className='font-extrabold lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-700 to-pink-600'>Chef's Special Recipes</h1>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 pb-5 items-center gap-3 md:w-4/5 container mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-3  pb-5  gap-3 md:w-4/5 container mx-auto'>
                 {
                     recipes.map(recipe => <Recipes key={id} recipe={recipe}></Recipes>)
                 }

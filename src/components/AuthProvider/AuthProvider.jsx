@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import app from '../../firebase/firebase.config';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const AuthContext = createContext(null)
 const auth = getAuth(app);
@@ -21,12 +22,12 @@ const AuthProvider = ({ children }) => {
     const [loader, setLoader] = useState(true)
 
     const createAcctWithEmail = (email, password) => {
-        setLoader(true)
+        // setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const LoginWithEmail = (email, password) => {
-        setLoader(true)
+        // setLoader(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 

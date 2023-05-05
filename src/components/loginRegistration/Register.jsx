@@ -76,7 +76,7 @@ const Register = () => {
                 const loggedUser = res.user;
                 toast.info('registration success')
                 setUser(loggedUser);
-                navigate(location?.state?.pathname || '/login' , {replace: true})
+                navigate(location?.state?.pathname || '/' , {replace: true})
                 // calling the photo and url updating function
                 updatePhotoAndUrl(res.user)
                     .then(() => {

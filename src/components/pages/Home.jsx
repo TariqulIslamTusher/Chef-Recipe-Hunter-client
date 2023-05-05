@@ -5,12 +5,14 @@ import ChefCard from '../Chef-Card/ChefCard'
 import Priority from './Priority';
 import { toast } from 'react-toastify';
 import Lesson from './Lesson';
+import Navbar from '../Navbar';
 
 const Home = () => {
     const chefsInfo = useLoaderData()
 
     return (
-        <div>
+        <div style={{ backgroundImage: "url('https://images.pexels.com/photos/6294402/pexels-photo-6294402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')" }}>
+            
             <Banner></Banner>
             <div className='bg-gradient-to-b from-gray-900 via-gray-300 to-cyan-700 border-t-indigo-300'>
                 <div className='grid grid-cols-1 px-4 md:grid-cols-3 container mx-auto gap-8 -translate-y-40'>
@@ -20,11 +22,11 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='bg-gradient-to-b from-cyan-700 to-gray-400 text-center py-5'>
+            <div className='bg-gradient-to-b from-cyan-700 from-60%  to-teal-700 text-center py-5'>
                     <Priority></Priority>
             </div>
 
-            <div className='bg-gradient-to-b from-gray-400 to-cyan-300 text-center'>
+            <div className='bg-gradient-to-b from-teal-700 to-teal-400 text-center pt-7 md:pt-12'>
                 <Lesson></Lesson>
             </div>
 

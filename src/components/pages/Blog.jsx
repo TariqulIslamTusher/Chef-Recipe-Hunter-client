@@ -7,10 +7,8 @@ const Blog = () => {
 
     return (
         <div>
-            <div className='bg-black'>
+            <div className='bg-gradient-to-r from-slate-300 via-slate-50 to-slate-300' style={{ backgroundImage: "url('https://images.pexels.com/photos/6294402/pexels-photo-6294402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')" }}>
                 <Navbar></Navbar>
-            </div>
-            <div className='bg-gradient-to-r from-slate-300 via-slate-50 to-slate-300'>
                 <QustionAnswer></QustionAnswer>
             </div>
         </div>

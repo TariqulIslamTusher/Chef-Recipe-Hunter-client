@@ -8,7 +8,7 @@ const Navbar = () => {
     const { user, signOutUser, setUser } = useContext(AuthContext)
 
     const handleLogOut = () => {
-        toast.info('logged out')
+        toast.info('logged out',{position: "top-center"})
         signOutUser()
             .then(() => {
                 setUser('')
@@ -18,9 +18,9 @@ const Navbar = () => {
             })
     }
     return (
-        <div className='bg-black bg-opacity-50'>
+        <div className='bg-black bg-opacity-70 sticky top-0 z-50'>
             <ToastContainer></ToastContainer>
-            <div className="navbar sticky top-0 text-white text-2xl z-20 container mx-auto">
+            <div className="navbar  text-white text-2xl z-20 container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -23,6 +23,7 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value
 
+
        
 
 
@@ -58,12 +59,12 @@ const Login = () => {
                 navigate(location.state?.pathname || '/' ,  { replace: true })
             })
             .catch(err => {
+                setRootError(err.message);
+                toast.error(rootErr)
                 event.target.password.value =''
                 event.target.email.value = ""
                 event.target.email.focus()
-
-                setRootError(err.message);
-                toast.error(rootErr)
+               
             })
     }
 
