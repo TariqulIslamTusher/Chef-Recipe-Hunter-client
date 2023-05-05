@@ -55,14 +55,15 @@ const Login = () => {
                 toast.success('login success')
                 const emailUser = res.user
                 setUser(emailUser);
-                navigate(location.state?.pathname || '/')
+                navigate(location.state?.pathname || '/' ,  { replace: true })
             })
             .catch(err => {
                 event.target.password.value =''
                 event.target.email.value = ""
-                console.log(err.message);
+                event.target.email.focus()
+
                 setRootError(err.message);
-                toast.warning(rootErr)
+                toast.error(rootErr)
             })
     }
 
@@ -73,13 +74,13 @@ const Login = () => {
                 const loggedUser = res.user
                 setUser(loggedUser);
                 toast.success('Login Successed')
-                navigate(location?.state?.pathname || '/')
+                navigate(location?.state?.pathname || '/',  { replace: true })
 
             })
             .catch(err =>{
                 console.log(err.message)
                 setRootError(err.message)
-                toast.warning(rootErr)
+                toast.error(rootErr)
             })
     }
 
@@ -90,12 +91,12 @@ const Login = () => {
                 const loggedUser = res.user
                 setUser(loggedUser);
                 toast.success('Login Successed')
-                navigate(location.state?.pathname || '/')
+                navigate(location.state?.pathname || '/' ,  { replace: true })
             })
             .catch(err => {
                 console.log(err.message)
                 setRootError(err.message)
-                toast.warning(rootErr)
+                toast.error(rootErr)
             })
     }
 
@@ -168,7 +169,7 @@ const Login = () => {
                     </div>
 
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Log In</button>
-                    
+
                     <p className='my-3'>New Here?<Link className='text-red-800 font-bold ml-2' to='/register' state={location.state}>Register now</Link></p>
 
                     <div className='flex gap-3 items-center'>

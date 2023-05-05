@@ -76,9 +76,9 @@ const Register = () => {
                 const loggedUser = res.user;
                 toast.info('registration success')
                 setUser(loggedUser);
-                navigate(location?.state?.pathname || '/')
+                navigate(location?.state?.pathname || '/login' , {replace: true})
                 // calling the photo and url updating function
-                updatePhotoAndUrl(loggedUser, name, Url)
+                updatePhotoAndUrl(res.user)
                     .then(() => {
 
                     }).catch((error) => {
@@ -88,11 +88,11 @@ const Register = () => {
             })
             .catch(err => {
                 setRootError(err.message);
-                toast.warning(err.message)
+                toast.error(err.message)
             })
 
         // Photo and url updating function
-        const updatePhotoAndUrl = (user, name, Url) => {
+        const updatePhotoAndUrl = (user) => {
             return updateProfile(user, { displayName: name, photoURL: Url })
         }
 
