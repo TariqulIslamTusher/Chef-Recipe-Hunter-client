@@ -26,13 +26,13 @@ const SingleChef = ({ chefData }) => {
                     <p className="lg:text-2xl mb-3 py-3 text-gray-700 border-b-4 text-justify">{description}</p>
                     {/* second Border */}
                     <div>
-                        <h1 className='text-xl leading-8'><span className='font-bold mr-3'>Name :</span> {chefName}</h1>
+                        <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Name :</span> {chefName}</h1>
 
-                        <h1 className='text-xl leading-8'><span className='font-bold mr-3'>Experience :</span>{yearsExperience} Years+</h1>
+                        <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Experience :</span>{yearsExperience} Years+</h1>
 
-                        <h1 className='text-xl leading-8'><span className='font-bold mr-3'>Ratings :</span>{ratings}</h1>
+                        <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Ratings :</span>{ratings}</h1>
 
-                        <h1 className='text-xl leading-8'><span className='font-bold mr-3'>Recipes: </span>{numRecipes}</h1>
+                        <h1 className='text-xl text-black leading-8'><span className='font-bold mr-3'>Recipes: </span>{numRecipes}</h1>
 
                     </div>
                     {/* Icon part */}

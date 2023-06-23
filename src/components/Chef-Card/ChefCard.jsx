@@ -15,8 +15,8 @@ const ChefCard = ({ singleInfo }) => {
                 </LazyLoad>
            
             <div className="card-body rounded-b-xl bg-gradient-to-br from-amber-200 to-sky-200 ">
-                <h2 className="card-title text-xl md:text-2xl font-bold">{chefName}</h2>
-                <p className='md:text-xl'>Experience: {yearsExperience} Years+</p>
+                <h2 className="card-title text-black text-xl md:text-2xl font-bold">{chefName}</h2>
+                <p className='md:text-xl text-black'>Experience: {yearsExperience} Years+</p>
                 <p>Total Recipes: {numRecipes}</p>
                 {/* likes and ratings */}
                 <div className='flex justify-between mt-3 border-y-2 py-4'>

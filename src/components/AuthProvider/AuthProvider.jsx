@@ -9,6 +9,7 @@ const auth = getAuth(app);
 
 
 const AuthProvider = ({ children }) => {
+    // central user which is setted in diff places
     const [user, setUser] = useState('')
 
     // controlled form making state
@@ -22,12 +23,12 @@ const AuthProvider = ({ children }) => {
     const [loader, setLoader] = useState(true)
 
     const createAcctWithEmail = (email, password) => {
-        // setLoader(true)
+        setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const LoginWithEmail = (email, password) => {
-        // setLoader(true)
+        setLoader(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -35,27 +36,25 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currUser) => {
-            setLoader(false)
-            setUser(currUser)
 
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth, (remainingLoggedUser)=>{
+            setLoader(false)
+            setUser(remainingLoggedUser)
         })
-        return () => {
+        return ()=>{
             return unsubscribe()
         }
-    }, [])
+    },[])
 
-
-
-
+    // object that travelling through context api
     const authInfo = {
         user, setUser, loader, setLoader, password, setPassword, passwordError, setPError, emailError, setEmailError, email, setEmail, rootErr, setRootError,
         createAcctWithEmail,
         LoginWithEmail,
-        signOutUser
+        signOutUser,
+        updatePhotoAndUrl
     }
-
 
     return (
         <AuthContext.Provider value={authInfo}>
