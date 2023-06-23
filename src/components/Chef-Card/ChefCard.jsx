@@ -9,7 +9,7 @@ const ChefCard = ({ singleInfo }) => {
 
     return (
         <div id='chef-card' className="card rounded-3xl w-full max-h-fit bg-base-100 shadow-2xl hover:-translate-y-4 transition-all ease-in-out duration-500">
-           
+            {/* // using lazyload reduce the loading problem  */}
                 <LazyLoad>
                     <img className='object-cover rounded-t-xl object-center w-full h-[370px]' src={chefPicture} alt="" />
                 </LazyLoad>
